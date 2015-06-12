@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+  </style>
+</head>
+<body>
+<h2 id="what-is-backend-development">What is backend development</h2>
+<p><img src="https://dl.dropboxusercontent.com/u/56723580/blog/robot_design.jpg" alt="Designing System" /> - Typically interacts with other machines - Holds business logic - Runs on server</p>
+<p></p>
+<hr />
+<h2 id="why-backend-development">Why backend development</h2>
+<ul>
+<li>Protect your IP</li>
+<li>Runs powerful machines</li>
+<li>Easily scalable (if written right)&quot;</li>
+<li>Serve many clients</li>
+</ul>
+<hr />
+<h2 id="how">How</h2>
+<ul>
+<li>Code written on remote machine</li>
+<li>Typical languages include PHP, Python, Ruby, Java, JS</li>
+</ul>
+<hr />
+<h2 id="major-areas">Major Areas</h2>
+<ul>
+<li>Database</li>
+<li>Routing</li>
+<li>Queuing</li>
+<li>APIs (Interaction with frontend and other applications)</li>
+</ul>
+<div class="figure">
+<img src="https://dl.dropboxusercontent.com/u/56723580/blog/sqllite_logo.png" title="SQL Lite Logo" alt="sqllite" /><p class="caption">sqllite</p>
+</div>
+<hr />
+<h2 id="tools">Tools</h2>
+<ul>
+<li>Languages : PHP, Python, Ruby, Java, JS</li>
+<li>Editors: Netbeans, PHPStorm, SublimeText, VIM</li>
+<li>Frameworks: Laravel, RoR, Django</li>
+</ul>
+<hr />
+<h2 id="install-php-mysql-apache">Install PHP, MySQL, Apache</h2>
+<ul>
+<li><p>Please see <a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu" title="https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu">https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu</a></p></li>
+<li><p>Install POSTMan https://www.getpostman.com/</p></li>
+</ul>
+<hr />
+<h2 id="task-1-basic-computation">Task 1 Basic Computation</h2>
+<p>Create a html/cli program that takes in two numbers and outputs their sum.</p>
+<hr />
+<h2 id="task-1-sample-solution">Task 1 Sample solution</h2>
+<ol style="list-style-type: decimal">
+<li><p>Write out php file with the code</p>
+<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+<span class="kw">$sum</span>=<span class="kw">$_REQUEST</span><span class="ot">[</span><span class="st">&#39;val1&#39;</span><span class="ot">]</span>+<span class="kw">$_REQUEST</span><span class="ot">[</span><span class="st">&#39;val2&#39;</span><span class="ot">];</span>
+<span class="fu">echo</span> <span class="kw">$sum</span><span class="ot">;</span></code></pre></li>
+<li>Name the file add_two.php</li>
+<li><p>Serve the file</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">php</span> -S 0.0.0.0:8888 -t . add_two.php</code></pre></li>
+</ol>
+<hr />
+<h2 id="task-2">Task 2</h2>
+<p>Write script that takes in a integer and gives the sum of all numbers preceding it. The number itself inclusive.</p>
+<p>eg</p>
+<p>Given 5 The system would return 15, (5+4+3+2+1)</p>
+<hr />
+<h2 id="task-2-suggested-solution">Task 2 Suggested solution</h2>
+<pre class="sourceCode php"><code class="sourceCode php"><span class="kw">&lt;?php</span>
+<span class="kw">$number</span>=<span class="kw">$_REQUEST</span><span class="ot">[</span><span class="st">&#39;number&#39;</span><span class="ot">];</span>
+<span class="kw">$total</span>=<span class="dv">0</span><span class="ot">;</span>
+
+<span class="kw">for</span> <span class="ot">(</span><span class="kw">$i</span> = <span class="dv">0</span><span class="ot">;</span> <span class="kw">$i</span> &lt; <span class="kw">$number</span><span class="ot">;</span> <span class="kw">$i</span>++<span class="ot">)</span> {
+        <span class="kw">$total</span>+=<span class="kw">$i</span><span class="ot">;</span>
+}
+<span class="fu">echo</span> <span class="kw">$total</span><span class="ot">;</span>
+
+<span class="co">//Alternative solution</span>
+<span class="fu">echo</span> <span class="st">&quot;&lt;hr&gt;&quot;</span><span class="ot">;</span>
+<span class="kw">$total</span>=<span class="kw">$number</span> * <span class="ot">(</span><span class="kw">$number</span><span class="dv">-1</span><span class="ot">)</span> * <span class="fl">0.5</span><span class="ot">;</span>
+
+<span class="fu">echo</span> <span class="kw">$total</span><span class="ot">;</span></code></pre>
+<p>The steps for serving this file are the same as previous</p>
+<hr />
+<h2 id="assignment">Assignment</h2>
+<p>Write a php application that accepts comma delimited string and gives us their average</p>
+<p>eg</p>
+<p>Accepts string such as &quot;12,15,25&quot; and prints out 17.33333</p>
+<hr />
+<h2 id="thank-you">Thank You</h2>
+</body>
+</html>
